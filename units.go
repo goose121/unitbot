@@ -8,12 +8,12 @@ import (
 )
 
 type Unit struct {
-    // The scale factor from the base metric unit
-    // to this unit
-    scaleFactor float64
-    // The offset from metric to this unit
-    // mostly for temperature units
-    unitOffset float64
+	// The scale factor from the base metric unit
+	// to this unit
+	scaleFactor float64
+	// The offset from metric to this unit
+	// mostly for temperature units
+	unitOffset float64
 }
 
 var Distances = map[string]Unit{
@@ -40,22 +40,22 @@ var Temps = map[string]Unit {
 }
 
 var SiPrefixes = map[string]int{
-    "exa": 18,
-    "peta": 15,
-    "tera": 12,
-    "giga": 9,
-    "mega": 6,
-    "kilo": 3,
-    "hecto": 2,
-    "deca": 1,
-    "deci": -1,
-    "centi": -2,
-    "milli": -3,
-    "micro": -6,
-    "nano": -9,
-    "pico": -12,
-    "femto": -15,
-    "atto": -18,
+	"exa": 18,
+	"peta": 15,
+	"tera": 12,
+	"giga": 9,
+	"mega": 6,
+	"kilo": 3,
+	"hecto": 2,
+	"deca": 1,
+	"deci": -1,
+	"centi": -2,
+	"milli": -3,
+	"micro": -6,
+	"nano": -9,
+	"pico": -12,
+	"femto": -15,
+	"atto": -18,
 }
 
 var ShortForms = map[string]string {

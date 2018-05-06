@@ -1,28 +1,28 @@
 package main;
 
 import (
-    "os"
-    "flag"
+	"os"
+	"flag"
 	"syscall"
 	"os/signal"
 	"fmt"
 	"strings"
-    "github.com/bwmarrin/discordgo"
+	"github.com/bwmarrin/discordgo"
 )
 
 func init() {
-    flag.StringVar(&token, "t", "", "Bot Token")
-    flag.Parse()
+	flag.StringVar(&token, "t", "", "Client secret token")
+	flag.Parse()
 }
 
 var token string
 
 func main() {
-    if token == "" {
-        os.Exit(1)
-    }
+	if token == "" {
+		os.Exit(1)
+	}
 
-    dg, err := discordgo.New("Bot " + token)
+	dg, err := discordgo.New("Bot " + token)
 	if err != nil {
 		fmt.Println(err)
 		return
