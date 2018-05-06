@@ -4,6 +4,7 @@ import (
 	"os"
 	"flag"
 	"syscall"
+	"io/ioutil"
 	"os/signal"
 	"fmt"
 	"strings"
@@ -11,7 +12,7 @@ import (
 )
 
 func init() {
-	flag.StringVar(&token, "t", "", "Client secret token")
+	flag.StringVar(&token, "t", "", "Bot token")
 	flag.Parse()
 }
 
@@ -19,7 +20,12 @@ var token string
 
 func main() {
 	if token == "" {
-		os.Exit(1)
+		bytes, err := ioutil.ReadFile("token.txt")
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		token = strings.TrimSpace(string(bytes))
 	}
 
 	dg, err := discordgo.New("Bot " + token)
