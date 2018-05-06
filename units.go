@@ -61,6 +61,7 @@ var SiPrefixes = map[string]int{
 var ShortForms = map[string]string {
 	"cm": "centimeter",
 	"m": "meter",
+	"in": "inch",
 	"ft": "foot",
 	"yd": "yard",
 	"mi": "mile",
