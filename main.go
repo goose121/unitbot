@@ -8,6 +8,7 @@ import (
 	"os/signal"
 	"fmt"
 	"strings"
+	"strconv"
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -69,6 +70,10 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			return
 		}
 
-		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%f %s is %f %s", quant, unit1, out, unit2))
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s %s is %s %s",
+			strconv.FormatFloat(quant, 'g', -1, 64),
+			unit1,
+			strconv.FormatFloat(out, 'g', -1, 32),
+			unit2))
 	}
 }
